@@ -200,7 +200,7 @@
         statusNote.textContent = "Loading release info…";
 
         try {
-          const response = await fetch(MANIFEST_URL, { cache: "no-store" });
+          const response = await fetch(`${MANIFEST_URL}?t=${Date.now()}`, { cache: "no-store" });
           if (!response.ok) {
             throw new Error(`HTTP ${response.status}`);
           }
