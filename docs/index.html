@@ -149,8 +149,8 @@
     (() => {
       "use strict";
 
-      // Default password: hsbkiller — change with releases-site/tools/hash-password.html
-      const PASSWORD_HASH = "8b3b04aed8ca6f83299c4147a5c6ff7d589d82ab7f764cf2b29c58042ed3ad8d";
+      // Team password hash only — rotate with releases-site/tools/hash-password.html
+      const PASSWORD_HASH = "d529eba7a3fc0be8d7fb7674f53fd405f006ca769271b85b9903f6b846d14841";
       const MANIFEST_URL =
         "https://raw.githubusercontent.com/samstriker2938429310478097/HSBKiller-releases/main/updates/latest.json";
       const SESSION_KEY = "hsbkiller_downloads_unlocked";
@@ -224,7 +224,7 @@
               "No direct download links yet. Ask your admin to publish a release.";
           } else {
             statusNote.textContent =
-              "Mac: open the .dmg and drag HSBKiller to Applications (or anywhere). First launch: right-click → Open. Place credentials.json next to HSBKiller.app. Windows: unzip and run HSBKiller.exe; put credentials.json next to the exe. Set Shopify credentials in the app.";
+              "Mac: open the .dmg and drag HSBKiller to Applications (or anywhere). First launch: right-click → Open. Windows: unzip and run HSBKiller.exe. Google sign-in opens in your browser on first use; Shopify and Fileflare defaults are built in.";
           }
         } catch (error) {
           statusNote.textContent =
