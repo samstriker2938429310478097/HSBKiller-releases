@@ -209,18 +209,22 @@
           const version = manifest.version || "unknown";
           versionLabel.textContent = `v${String(version).replace(/^v/i, "")}`;
 
+          const macUrl = manifest.mac_url;
           const windowsUrl = manifest.windows_url;
 
+          if (macUrl) {
+            addDownloadButton("Download for Mac (.dmg)", macUrl);
+          }
           if (windowsUrl) {
             addDownloadButton("Download for Windows (.zip)", windowsUrl);
           }
 
-          if (!windowsUrl) {
+          if (!macUrl && !windowsUrl) {
             statusNote.textContent =
               "No direct download links yet. Ask your admin to publish a release.";
           } else {
             statusNote.textContent =
-              "Unzip the folder and run HSBKiller.exe. Place credentials.json next to the exe before first Google sign-in. Set Shopify credentials in the app.";
+              "Mac: open the .dmg and drag HSBKiller to Applications (or anywhere). First launch: right-click → Open. Place credentials.json next to HSBKiller.app. Windows: unzip and run HSBKiller.exe; put credentials.json next to the exe. Set Shopify credentials in the app.";
           }
         } catch (error) {
           statusNote.textContent =
