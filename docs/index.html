@@ -119,6 +119,31 @@
       color: var(--muted);
       line-height: 1.45;
     }
+    .mac-help {
+      margin-top: 1rem;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+    .mac-help summary {
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .mac-help ol {
+      margin: 0.75rem 0 0;
+      padding-left: 1.25rem;
+    }
+    .mac-help code {
+      display: block;
+      margin: 0.4rem 0;
+      padding: 0.5rem;
+      border-radius: 6px;
+      background: var(--bg);
+      overflow-wrap: anywhere;
+      user-select: all;
+    }
     #gate { display: block; }
     #gate.hidden { display: none; }
   </style>
@@ -141,6 +166,18 @@
       <p class="version">Latest version: <strong id="versionLabel">…</strong></p>
       <div class="download-list" id="downloadList"></div>
       <p class="note" id="statusNote"></p>
+      <details class="mac-help">
+        <summary>Mac says HSBKiller is damaged?</summary>
+        <ol>
+          <li>Drag HSBKiller from the disk image to <strong>Applications</strong>. Do not open it from the disk image.</li>
+          <li>Open <strong>Terminal</strong> (Applications → Utilities → Terminal).</li>
+          <li>Paste this command and press Return:
+            <code>xattr -cr "/Applications/HSBKiller.app"</code>
+          </li>
+          <li>Open HSBKiller from Applications. If prompted, right-click it and choose <strong>Open</strong>.</li>
+        </ol>
+        <p>This removes the download quarantine flag from this unsigned internal app.</p>
+      </details>
       <button type="button" class="btn btn-secondary" id="logoutBtn">Lock page</button>
     </section>
   </main>
@@ -228,7 +265,7 @@
               "No direct download links yet. Ask your admin to publish a release.";
           } else {
             statusNote.textContent =
-              "Apple Silicon Macs (M1/M2/M3…): use the Apple Silicon download. Older Intel Macs: use the Intel download. Open the .dmg, drag HSBKiller to Applications (or anywhere). First launch: right-click → Open. Windows: unzip and run HSBKiller.exe. Google sign-in opens in your browser on first use; Shopify and Fileflare defaults are built in.";
+              "Apple Silicon Macs (M1/M2/M3…): use the Apple Silicon download. Older Intel Macs: use the Intel download. Open the .dmg and drag HSBKiller to Applications before opening it. Windows: unzip and run HSBKiller.exe. Google sign-in opens in your browser on first use; Shopify and Fileflare defaults are built in.";
           }
         } catch (error) {
           statusNote.textContent =
