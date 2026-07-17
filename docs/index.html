@@ -209,22 +209,26 @@
           const version = manifest.version || "unknown";
           versionLabel.textContent = `v${String(version).replace(/^v/i, "")}`;
 
-          const macUrl = manifest.mac_url;
+          const macArmUrl = manifest.mac_arm64_url || manifest.mac_url;
+          const macIntelUrl = manifest.mac_intel_url;
           const windowsUrl = manifest.windows_url;
 
-          if (macUrl) {
-            addDownloadButton("Download for Mac (.dmg)", macUrl);
+          if (macArmUrl) {
+            addDownloadButton("Download for Mac — Apple Silicon (.dmg)", macArmUrl);
+          }
+          if (macIntelUrl) {
+            addDownloadButton("Download for Mac — Intel (.dmg)", macIntelUrl);
           }
           if (windowsUrl) {
             addDownloadButton("Download for Windows (.zip)", windowsUrl);
           }
 
-          if (!macUrl && !windowsUrl) {
+          if (!macArmUrl && !macIntelUrl && !windowsUrl) {
             statusNote.textContent =
               "No direct download links yet. Ask your admin to publish a release.";
           } else {
             statusNote.textContent =
-              "Mac: open the .dmg and drag HSBKiller to Applications (or anywhere). First launch: right-click → Open. Windows: unzip and run HSBKiller.exe. Google sign-in opens in your browser on first use; Shopify and Fileflare defaults are built in.";
+              "Apple Silicon Macs (M1/M2/M3…): use the Apple Silicon download. Older Intel Macs: use the Intel download. Open the .dmg, drag HSBKiller to Applications (or anywhere). First launch: right-click → Open. Windows: unzip and run HSBKiller.exe. Google sign-in opens in your browser on first use; Shopify and Fileflare defaults are built in.";
           }
         } catch (error) {
           statusNote.textContent =
