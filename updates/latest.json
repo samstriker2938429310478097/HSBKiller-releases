@@ -1,7 +1,9 @@
 {
-  "version": "0.2.3",
+  "version": "0.2.4",
   "download_page_url": "https://samstriker2938429310478097.github.io/HSBKiller-releases/",
   "release_url": "https://samstriker2938429310478097.github.io/HSBKiller-releases/",
-  "mac_url": "https://github.com/samstriker2938429310478097/HSBKiller-releases/releases/download/v0.2.3/HSBKiller_0.2.3_macos.dmg",
-  "windows_url": "https://github.com/samstriker2938429310478097/HSBKiller-releases/releases/download/v0.2.3/HSBKiller_0.2.3_windows.zip"
+  "mac_arm64_url": "https://github.com/samstriker2938429310478097/HSBKiller-releases/releases/download/v0.2.4/HSBKiller_0.2.4_macos_arm64.dmg",
+  "mac_intel_url": "https://github.com/samstriker2938429310478097/HSBKiller-releases/releases/download/v0.2.4/HSBKiller_0.2.4_macos_x86_64.dmg",
+  "mac_url": "https://github.com/samstriker2938429310478097/HSBKiller-releases/releases/download/v0.2.4/HSBKiller_0.2.4_macos_arm64.dmg",
+  "windows_url": "https://github.com/samstriker2938429310478097/HSBKiller-releases/releases/download/v0.2.4/HSBKiller_0.2.4_windows.zip"
 }
